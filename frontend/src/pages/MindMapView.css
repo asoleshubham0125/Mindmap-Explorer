@@ -1,0 +1,146 @@
+.minimap-root {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #0b0f1a;
+  overflow: hidden;
+  font-family: Inter, sans-serif;
+  color: #e5e7eb;
+}
+
+/* Dotted background grid styling */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+  z-index: 0;
+}
+
+/* SVG connection lines configuration */
+.connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.link {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 2;
+  transition: stroke 0.3s ease;
+}
+
+.link.selected {
+  stroke: #3b82f6;
+  stroke-dasharray: 6;
+}
+
+/* Individual node styling and positioning */
+.node {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  min-width: 220px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.node h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.node p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Icon container and color variants */
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.icon.purple {
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.icon.blue {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.icon.green {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.icon.database {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.icon.shield {
+  background: rgba(234, 179, 8, 0.2);
+}
+
+/* Status badge for selected nodes */
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #2563eb;
+  font-size: 10px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+/* Floating interface for zoom interaction */
+.zoom-controls {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 3;
+}
+
+.zoom-controls button {
+  width: 36px;
+  height: 36px;
+  background: rgba(17, 24, 39, 0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Parent layout and canvas wrapper */
+.mindmap-layout {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 56px);
+}
+
+.mindmap-canvas-wrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
