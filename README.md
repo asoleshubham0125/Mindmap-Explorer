@@ -1,82 +1,112 @@
-# Mind Map Viewer
+# 🧠 MindMap Pro – Interactive Mind Map Application
 
-## Technologies Used
-
-- **React (Functional Components)** – For building a modular, component-based UI.
-- **JavaScript (ES6+)** – Used for clean, modern syntax and better maintainability.
-- **CSS (Custom Styling)** – Handles layout, transitions, zooming, panning, and visual hierarchy.
-- **JSON** – Acts as the structured data source for the mind map.
+MindMap Pro is an interactive web-based mind mapping tool that allows users to visualize, manage, and edit hierarchical tasks with smooth zooming, panning, and contextual side-panel editing.
 
 ---
 
-## Libraries Used (and Rationale)
+## 📸 Screenshots
+
+### Main Mind Map View (Dark Mode)
+
+![Main View](./assets/screenshots/mindmap-dark-main.png)
+
+### Node Selection & Sidebar Details
+
+![Sidebar](./assets/screenshots/mindmap-node-details.png)
+
+### Editing a Node
+
+![Edit Node](./assets/screenshots/mindmap-edit-node.png)
+
+### Light Mode View
+
+![Light Mode](./assets/screenshots/mindmap-light-mode.png)
+
+---
+
+## 🎥 Demo Video
+
+▶️ **Watch here:**  
+[Demo Video Link](https://drive.google.com/file/d/1SmMKifReBGkwe_fnne-fNotAkV12_UMD/view?usp=sharing)
+
+---
+
+## Technologies Used
+
+- **React (Functional Components)**
+- **JavaScript (ES6+)**
+- **CSS (Custom Styling)**
+- **JSON** (static data source for mind map structure)
+
+---
+
+## Libraries Used (and Why)
 
 - **React Hooks**
-  - `useState` – Manages application state (selected node, collapsed nodes, zoom, pan, sidebar visibility).
-  - `useEffect` – Handles data initialization and layout recalculations.
-  - `useRef` – Used for DOM references and efficient pan/drag handling.
+  - `useState` – Manages selected node, collapsed nodes, zoom, pan, and UI state
+  - `useEffect` – Handles data initialization and layout recalculation
+  - `useRef` – Enables smooth panning and efficient DOM interaction
 
-No external visualization libraries (e.g., D3, React Flow) were used to maintain:
-
-- Full control over layout and interactions
-- Lightweight bundle size
-- Easier customization and debugging
+❌ No external graph/visualization libraries were used  
+✅ Full control over layout, performance, and extensibility
 
 ---
 
 ## Architecture & Approach
 
-The application follows a **component-driven and state-centric architecture**:
-
 ```text
-MindMapView (Root Container)
-├── Mind Map Canvas
-│   ├── Node Layout
-│   ├── Edges
-│   └── Interactions (Pan, Zoom, Drag)
-└── Sidebar
-    └── Selected Node Details
+MindMapView (Root)
+├── Canvas (Nodes, edges, zoom & pan)
+└── Sidebar (Node details & editing)
 ```
 
-### Key Design Principles
+### Design Principles
 
-- **Single Source of Truth**: The root node from JSON drives the entire tree.
-- **Recursive Rendering**: Child nodes are rendered recursively, enabling unlimited depth.
-- **Separation of Concerns**:
-  - Data & state → MindMapView
-  - Presentation → Canvas & Sidebar
-  - Styling → CSS
+- **Single Source of Truth** (JSON-driven tree)
+- **Recursive Rendering** for unlimited depth
+- **Clear separation** of data, UI, and styles
 
 ---
 
 ## Data Flow: JSON → UI
 
-1. **Data Source**  
-   The mind map structure is defined in a JSON file with nodes and child relationships.
-
-2. **Initialization**  
-   On component mount, the root node is loaded into React state.
-
-3. **Layout Calculation**  
-   Node positions are computed based on:
-
-   - Depth in the tree (vertical spacing)
-   - Sibling order (horizontal spacing)
-
-4. **Rendering**  
-   Nodes and connections are rendered dynamically.  
-   Recursive rendering ensures scalability for large trees.
-
-5. **User Interaction**
-   - Clicking a node selects it and opens the sidebar.
-   - Collapsing a node hides its subtree.
-   - Zoom and pan update transform state and re-render smoothly.
+1. Mind map structure is defined in JSON
+2. Root node is loaded into React state on mount
+3. Node positions are calculated using depth & sibling order
+4. Nodes and edges are rendered dynamically
+5. User interactions update state → UI re-renders instantly
 
 ---
 
+## How to Run Locally
+
+### Prerequisites
+
+- Node.js (v16+ recommended)
+- npm or yarn
+
+### Steps
+
+```bash
+# Clone the repository
+git clone https://github.com/asoleshubham0125/Mindmap-Explorer.git
+
+# Navigate to project directory
+cd mindmap-pro
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+The app will be available at:
+👉 http://localhost:3000
+```
+
 ## Why This Design
 
-- **Scalable** – Supports deep and complex mind maps
-- **Performant** – Minimal dependencies and controlled re-renders
-- **Maintainable** – Clear state flow and modular components
-- **Extensible** – Easy to add features like search, drag-drop, or persistence
+- ✅ **Scalable for large mind maps**
+- ✅ **Lightweight & performant**
+- ✅ **Easy to maintain and extend**
+- ✅ **Clean UX with minimal dependencies**
