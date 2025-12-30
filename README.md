@@ -92,7 +92,7 @@ MindMapView (Root)
 git clone https://github.com/asoleshubham0125/Mindmap-Explorer.git
 
 # Navigate to project directory
-cd mindmap-pro
+cd frontend
 
 # Install dependencies
 npm install
