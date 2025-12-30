@@ -394,3 +394,86 @@
   align-items: center;
   justify-content: center;
 }
+
+.danger-btn {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.danger-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.danger-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ADD CHILD NODE – CLEAN DARK UI */
+.add-child-card {
+  margin-top: 14px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-child-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.add-child-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.add-child-label .material-symbols-outlined {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.optional {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* Inputs */
+.add-child-input,
+.add-child-textarea {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: var(--text-primary);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.add-child-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.add-child-input::placeholder,
+.add-child-textarea::placeholder {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+/* Focus */
+.add-child-input:focus,
+.add-child-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent);
+}
