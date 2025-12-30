@@ -38,8 +38,8 @@ MindMapView (Root Container)
     └── Selected Node Details
 ```
 
-
 ### Key Design Principles
+
 - **Single Source of Truth**: The root node from JSON drives the entire tree.
 - **Recursive Rendering**: Child nodes are rendered recursively, enabling unlimited depth.
 - **Separation of Concerns**:
@@ -59,6 +59,7 @@ MindMapView (Root Container)
 
 3. **Layout Calculation**  
    Node positions are computed based on:
+
    - Depth in the tree (vertical spacing)
    - Sibling order (horizontal spacing)
 
@@ -66,7 +67,7 @@ MindMapView (Root Container)
    Nodes and connections are rendered dynamically.  
    Recursive rendering ensures scalability for large trees.
 
-5. **User Interaction**  
+5. **User Interaction**
    - Clicking a node selects it and opens the sidebar.
    - Collapsing a node hides its subtree.
    - Zoom and pan update transform state and re-render smoothly.
@@ -74,6 +75,7 @@ MindMapView (Root Container)
 ---
 
 ## Why This Design
+
 - **Scalable** – Supports deep and complex mind maps
 - **Performant** – Minimal dependencies and controlled re-renders
 - **Maintainable** – Clear state flow and modular components
